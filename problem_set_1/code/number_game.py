@@ -2,7 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-
 def number_game_simple_init(N, interval_prior, math_prior):
 
 	if abs((interval_prior + math_prior) - 1) > 0.05:
@@ -66,10 +65,14 @@ def number_game_likelihood(hypothesis, data):
 
 	# some number in data isn't in hypothesis
 	if dn - hn: # set difference
-		return 0
+		return -np.inf
 	else:
-		return (1.0/len(hn))**len(dn)
+		return np.log(1.0/len(hn))*len(dn)
 
+#print number_game_likelihood([1, 1, 0], [1, 0, 0])
+#print number_game_likelihood([1, 1, 0], [1, 0, 1])
+#print number_game_likelihood([1, 1, 0, 1, 0], [1, 0, 0, 1, 0])
+#print number_game_likelihood([1, 1, 1, 0, 1], [1, 0, 1, 0, 1])
 
 def number_game_plot_predictions(hypotheses, priors, data):
 	"""
@@ -168,3 +171,27 @@ def number_game_plot_predictions(hypotheses, priors, data):
 	ax[2].set_title('Top %u hypotheses in descending order of posterior probability' % topN)
 	plt.show()
 
+hypotheses, priors = number_game_simple_init(100, 1.0/3, 2.0/3)
+
+# Part 2.d.i.
+#number_game_plot_predictions(hypotheses, priors, [60, 52, 57, 55])
+#number_game_plot_predictions(hypotheses, priors, [18, 36, 72, 90])
+
+# Part 2.d.ii
+#number_game_plot_predictions(hypotheses, priors, [80])
+#number_game_plot_predictions(hypotheses, priors, [80, 10])
+#number_game_plot_predictions(hypotheses, priors, [80, 10, 60])
+#number_game_plot_predictions(hypotheses, priors, [80, 10, 60, 30])
+
+# Part 2.d.iii
+#hypotheses, priors = number_game_simple_init(100, 1.0/10, 9.0/10)
+#number_game_plot_predictions(hypotheses, priors, [60, 52, 57, 55])
+#number_game_plot_predictions(hypotheses, priors, [80, 10, 60, 30])
+
+#hypotheses, priors = number_game_simple_init(100, 9.0/10, 1.0/10)
+#number_game_plot_predictions(hypotheses, priors, [60, 52, 57, 55])
+#number_game_plot_predictions(hypotheses, priors, [80, 10, 60, 30])
+
+#hypotheses, priors = number_game_simple_init(100, 1.0/2, 1.0/2)
+#number_game_plot_predictions(hypotheses, priors, [60, 52, 57, 55])
+#number_game_plot_predictions(hypotheses, priors, [80, 10, 60, 30])
