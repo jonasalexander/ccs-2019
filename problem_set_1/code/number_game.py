@@ -185,13 +185,10 @@ hypotheses, priors = number_game_simple_init(100, 1.0/3, 2.0/3)
 
 # Part 2.d.iii
 #hypotheses, priors = number_game_simple_init(100, 1.0/10, 9.0/10)
-#number_game_plot_predictions(hypotheses, priors, [60, 52, 57, 55])
-#number_game_plot_predictions(hypotheses, priors, [80, 10, 60, 30])
+#number_game_plot_predictions(hypotheses, priors, [60])
 
 #hypotheses, priors = number_game_simple_init(100, 9.0/10, 1.0/10)
-#number_game_plot_predictions(hypotheses, priors, [60, 52, 57, 55])
-#number_game_plot_predictions(hypotheses, priors, [80, 10, 60, 30])
+#number_game_plot_predictions(hypotheses, priors, [60])
 
 #hypotheses, priors = number_game_simple_init(100, 1.0/2, 1.0/2)
-#number_game_plot_predictions(hypotheses, priors, [60, 52, 57, 55])
-#number_game_plot_predictions(hypotheses, priors, [80, 10, 60, 30])
+#number_game_plot_predictions(hypotheses, priors, [60])
